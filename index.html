@@ -182,10 +182,8 @@
 
 <div class="map-grid">
         
-        <!-- CLICKABLE PREVIEW CARD LINKING TO THE FULL GALLERY PAGE -->
         <a href="maps-gallery.html" class="map-card" style="grid-column: 1 / -1; display: block; text-decoration: none; color: inherit;">
           <div class="map-image" style="height: 380px; position: relative; overflow: hidden; background: none;">
-            <!-- This displays mapchange.png as the big preview thumbnail -->
             <img src="mapchange.png" alt="Change in vegetation around Beirut" style="width: 100%; height: 100%; object-fit: cover;">
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 2rem 1.5rem; color: white;">
               <span style="background: var(--accent); padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600;">CLICK TO OPEN</span>
@@ -197,22 +195,22 @@
           </div>
         </a>
 
-      </div>
-
-        <!-- LIVE CHOROPLETH MAP SLOT -->
         <div class="map-card" style="grid-column: 1 / -1;">
-          <div class="map-iframe-container">
-            <!-- Points directly to your map file locally in the repository -->
-            <iframe src="map.html" allowfullscreen></iframe>
+          <div class="map-iframe-container" id="mapContainer">
+            <iframe id="interactiveMapIframe" src="map.html" allowfullscreen></iframe>
           </div>
           <div class="map-content">
             <h3>Goal 3: Under-Five Mortality Rate (U5MR) Choropleth Map</h3>
-            <p>An interactive data map mapping global under-five mortality trends using Leaflet.js and data streams sourced directly from the UN SDG DataHub. Hover over specific elements to view localized details.</p>
+            <p style="margin-bottom: 1.5rem;">An interactive data map mapping global under-five mortality trends using Leaflet.js and data streams sourced directly from the UN SDG DataHub. Hover over specific elements to view localized details.</p>
+            
+            <button onclick="triggerMapFullscreen()" class="button" style="margin-top: 0; padding: 0.6rem 1.2rem; font-size: 0.9rem;">
+              Open Map Fullscreen ⤢
+            </button>
           </div>
         </div>
 
-      </div>
-    </div>
+   </div> ```
+
   </section>
 
   <section id="skills">
@@ -262,6 +260,17 @@
     function closeFullscreen() {
       document.getElementById("fullscreenModal").style.display = "none";
     }
+
+    function triggerMapFullscreen() {
+      const targetIframe = document.getElementById("interactiveMapIframe");
+      
+      if (targetIframe.requestFullscreen) {
+        targetIframe.requestFullscreen();
+      } else if (targetIframe.webkitRequestFullscreen) { /* Safari support */
+        targetIframe.webkitRequestFullscreen();
+      } else if (targetIframe.msRequestFullscreen) { /* IE11 support */
+        targetIframe.msRequestFullscreen();
+      }
+    }
   </script>
-</body>
 </html>
