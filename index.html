@@ -85,6 +85,40 @@
       .nav-links{ justify-content:center; }
       .hero{ padding-top:5rem; }
     }
+  /* Fullscreen Modal Styles */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 2000; 
+      padding-top: 2rem;
+      left: 0; top: 0;
+      width: 100%; height: 100%; 
+      overflow: auto; 
+      background-color: rgba(0,0,0,0.9); 
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .close-modal {
+      position: absolute;
+      top: 20px; right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .close-modal:hover { color: #bbb; }
+    .clickable-map { cursor: pointer; transition: transform 0.2s ease; }
+    .clickable-map:hover { transform: scale(1.02); }
   </style>
 </head>
   
@@ -144,7 +178,68 @@
         <p>Interact with the web-deployed layers directly below.</p>
       </div>
 
+      <div class="map-grid" style="margin-bottom: 2rem;">
+        <div class="map-card" style="grid-column: 1 / -1;">
+          <div class="map-iframe-container">
+            <iframe src="map.html" allowfullscreen></iframe>
+          </div>
+          <div class="map-content">
+            <h3>Goal 3: Under-Five Mortality Rate (U5MR) Choropleth Map</h3>
+            <p>An interactive data map mapping global under-five mortality trends using Leaflet.js.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 3rem;">
+        <div class="section-title" style="margin-bottom: 1.5rem;">
+          <h3>Featured Spatial Visualization</h3>
+          <p>Click the map card below to view it in high-resolution fullscreen mode.</p>
+        </div>
+        <div class="map-card clickable-map" onclick="openFullscreen('map1.png')">
+          <img src="map1.png" alt="Featured Map" style="width:100%; height:400px; object-fit:cover; border-bottom:1px solid var(--border);">
+          <div class="map-content">
+            <h3>Map Title 1: Featured Project (Click to Expand)</h3>
+            <p>Click anywhere on this card to open a full-window presentation layout of this dataset.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-bottom: 1.5rem;">
+        <h3>Additional Map Projects</h3>
+      </div>
       <div class="map-grid">
+        <div class="map-card">
+          <img src="map2.png" alt="Map 2" style="width:100%; height:260px; object-fit:cover; border-bottom:1px solid var(--border);">
+          <div class="map-content">
+            <h3>Map Title 2</h3>
+            <p>Description of your second map data and methodology.</p>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <img src="map3.png" alt="Map 3" style="width:100%; height:260px; object-fit:cover; border-bottom:1px solid var(--border);">
+          <div class="map-content">
+            <h3>Map Title 3</h3>
+            <p>Description of your third map data and methodology.</p>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <img src="map4.png" alt="Map 4" style="width:100%; height:260px; object-fit:cover; border-bottom:1px solid var(--border);">
+          <div class="map-content">
+            <h3>Map Title 4</h3>
+            <p>Description of your fourth map data and methodology.</p>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <img src="map5.png" alt="Map 5" style="width:100%; height:260px; object-fit:cover; border-bottom:1px solid var(--border);">
+          <div class="map-content">
+            <h3>Map Title 5</h3>
+            <p>Description of your fifth map data and methodology.</p>
+          </div>
+        </div>
+      </div>
 
         <!-- LIVE CHOROPLETH MAP SLOT -->
         <div class="map-card" style="grid-column: 1 / -1;">
@@ -193,6 +288,22 @@
   <footer>
     <div class="container">© 2026 UCU GIS Student Portfolio</div>
   </footer>
+<div id="fullscreenModal" class="modal" onclick="closeFullscreen()">
+    <span class="close-modal" onclick="closeFullscreen()">&times;</span>
+    <img class="modal-content" id="modalTargetImage">
+  </div>
 
+  <script>
+    function openFullscreen(imageSrc) {
+      const modal = document.getElementById("fullscreenModal");
+      const modalImg = document.getElementById("modalTargetImage");
+      modal.style.display = "flex";
+      modalImg.src = imageSrc;
+    }
+
+    function closeFullscreen() {
+      document.getElementById("fullscreenModal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
