@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>GIS Student Portfolio</title>
+  <title>Alice's GIS Portfolio</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,16 +143,16 @@
       <div class="hero-grid">
         <div>
           <h1>Alice's GIS portfolio</h1>
-          <p>A showcase of my maps.</p>
-          <a href="#maps" class="button">View Interactive Maps</a>
+          <p>A showcase of my maps from my UCU lab course of Geographical Information Systems</p>
+          <a href="#maps" class="button">View Maps</a>
         </div>
         <div class="hero-card">
           <h3>Portfolio Highlights</h3>
           <ul>
-            <li>• Leaflet Interactive Maps</li>
-            <li>• SDG Global Metrics Analysis</li>
-            <li>• Spatial Data Visualization</li>
-            <li>• Cartographic Systems</li>
+            <li>• SDG Choropleth interactive map</li>
+            <li>• Vector map</li>
+            <li>• DEM map</li>
+            <li>• Vegetation Indices</li>
           </ul>
         </div>
       </div>
@@ -163,7 +163,7 @@
     <div class="container">
       <div class="section-title">
         <h2>About Me</h2>
-        <p>Welcome to my geospatial work hub. I track and analyze international datasets to produce informative visual layouts.</p>
+        <p>Welcome to my geospatial work hub.</p>
       </div>
       <div class="about-box">
         <p>I am a GIS student focused on building clean, impactful mapping products that highlight critical global shifts, such as the UN Sustainable Development Goals.</p>
@@ -187,6 +187,9 @@
             <h3>Goal 3: Under-Five Mortality Rate (U5MR) Choropleth Map</h3>
             <p>An interactive data map mapping global under-five mortality trends using Leaflet.js.</p>
           </div>
+          <div class="map-card clickable-map" onclick="openFullscreen('map1.png')">
+          <img src="mapchange.png" alt="Featured Map" style="width:100%; height:400px; object-fit:cover; border-bottom:1px solid var(--border);">
+          <div class="map-content">
         </div>
       </div>
 
@@ -195,10 +198,10 @@
           <h3>Featured Spatial Visualization</h3>
           <p>Click the map card below to view it in high-resolution fullscreen mode.</p>
         </div>
-        <div class="map-card clickable-map" onclick="openFullscreen('map1.png')">
+        <div class="map-card clickable-map" onclick="openFullscreen('mapchange.png')">
           <img src="mapchange.png" alt="Featured Map" style="width:100%; height:400px; object-fit:cover; border-bottom:1px solid var(--border);">
           <div class="map-content">
-            <h3>Map Title 1: Featured Project (Click to Expand)</h3>
+            <h3>Map showing the difference in vegetation in Beirut between 2017-2025</h3>
             <p>Click anywhere on this card to open a full-window presentation layout of this dataset.</p>
           </div>
         </div>
