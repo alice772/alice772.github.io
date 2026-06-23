@@ -119,6 +119,29 @@
     .close-modal:hover { color: #bbb; }
     .clickable-map { cursor: pointer; transition: transform 0.2s ease; }
     .clickable-map:hover { transform: scale(1.02); }
+    
+    /* Smooth Hover Animation for Card Buttons */
+    .map-card {
+      position: relative; /* Allows the button to align to the very bottom of the card */
+    }
+    .click-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+      padding: 4rem 1.5rem 1.5rem;
+      color: white;
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      pointer-events: none; /* Ensures the card remains clickable underneath */
+      height: 100%;
+      z-index: 5;
+    }
+    /* When the user hovers over the card, reveal the button */
+    .map-card:hover .click-overlay {
+      opacity: 1;
+    }
   </style>
 </head>
   
@@ -183,32 +206,32 @@
 <div class="map-grid">
         
         <a href="maps-gallery.html" class="map-card" style="grid-column: 1 / -1; display: block; text-decoration: none; color: inherit;">
-          <div class="map-image" style="height: 380px; position: relative; overflow: hidden; background: none;">
+          <div class="map-image" style="height: 380px; background: none; border-bottom: 1px solid var(--border);">
             <img src="mapchange.png" alt="Change in vegetation around Beirut" style="width: 100%; height: 100%; object-fit: cover;">
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 2rem 1.5rem; color: white;">
-              <span style="background: var(--accent); padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600;">CLICK TO OPEN</span>
-            </div>
           </div>
           <div class="map-content">
             <h3 style="font-family: 'Merriweather', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">View More</h3>
-            <p>Click here to read more about vegetation in Beirut.</p>
+            <p style="margin-bottom: 1.5rem;">Click here to read more about vegetation in Beirut.</p>
+          </div>
+          <div class="click-overlay">
+            <span style="background: var(--accent); padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;">CLICK TO OPEN</span>
           </div>
         </a>
 
-        <div class="map-card" style="grid-column: 1 / -1;">
-          <div class="map-iframe-container" id="mapContainer">
+        <div class="map-card" style="grid-column: 1 / -1;" onclick="triggerMapFullscreen()">
+          <div class="map-iframe-container" id="mapContainer" style="position: relative;">
             <iframe id="interactiveMapIframe" src="map.html" allowfullscreen></iframe>
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 2rem 1.5rem; color: white;">
-              <span style="background: var(--accent); padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600;">CLICK TO OPEN</span>
-            </div>
           </div>
           <div class="map-content">
             <h3 style="font-family: 'Merriweather', serif; font-size: 1.4rem; margin-bottom: 0.5rem;">Goal 3: Under-Five Mortality Rate (U5MR) Choropleth Map</h3>
             <p style="margin-bottom: 1.5rem;">An interactive data map mapping global under-five mortality trends using Leaflet.js and data streams sourced directly from the UN SDG DataHub. Hover over specific elements to view localized details.</p>
           </div>
+          <div class="click-overlay" style="cursor: pointer;">
+            <span style="background: var(--accent); padding: 0.4rem 0.8rem; border-radius: 999px; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;">CLICK TO OPEN</span>
+          </div>
         </div>
 
-   </div> ```
+</div>
 
   </section>
 
