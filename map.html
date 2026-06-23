@@ -52,12 +52,14 @@
 		.info h4 { 
 			margin: 0 0 5px; 
 			color: #777; 
-		}
+			}
+		
 		.legend { 
-			text-align: left; 
-			line-height: 18px; 
-			color: #555; 
-		} 
+    text-align: left; 
+    line-height: 16px; /* Slightly tighter text spacing to save vertical space */
+    color: #555; 
+    margin-bottom: 40px !important; /* Forces the entire box to sit 40px higher from the bottom edge */
+		}
 		.legend i { 
 			width: 18px; 
 			height: 18px; 
@@ -82,8 +84,18 @@
 
 <script type="text/javascript">
 
-	// Centered around Central/Western Africa where the highest values lie in finalIMAGE.jpg
-	const map = L.map('map').setView([5, 20], 3);
+	// Define the strict corners of the world map
+	const southWest = L.latLng(-85, -180);
+	const northEast = L.latLng(85, 180);
+	const bounds = L.latLngBounds(southWest, northEast);
+
+	const map = L.map('map', {
+		center: [5, 20],
+		zoom: 2.5,          // Adjusted slightly so the whole world fits nicely on launch
+		minZoom: 2,         // Keeps users from zooming out so far that the map tiles break
+		maxBounds: bounds,  // Restricts panning to just this bounding box
+		maxBoundsViscosity: 1.0 // 1.0 means completely solid walls; the map won't budge past the bounds
+	});
 
 	const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
