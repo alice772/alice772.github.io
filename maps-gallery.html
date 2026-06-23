@@ -207,6 +207,29 @@
       © 2026 UCU GIS Student Portfolio — All Rights Reserved.
     </footer>
   </div>
+<div id="fullscreenModal" class="modal" onclick="closeFullscreen()">
+    <span class="close-modal" onclick="closeFullscreen()">&times;</span>
+    <img class="modal-content" id="modalTargetImage" alt="Fullscreen View">
+  </div>
 
+  <script>
+    function openFullscreen(imageSrc) {
+      const modal = document.getElementById("fullscreenModal");
+      const modalImg = document.getElementById("modalTargetImage");
+      modal.style.display = "flex";
+      modalImg.src = imageSrc;
+    }
+
+    function closeFullscreen() {
+      document.getElementById("fullscreenModal").style.display = "none";
+    }
+
+    // Optional: Press 'Esc' key to close the view seamlessly
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeFullscreen();
+      }
+    });
+  </script>
 </body>
 </html>
