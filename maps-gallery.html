@@ -90,6 +90,35 @@
       transform: scale(1.01);
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     }
+    /* Lightbox Slider Arrows */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: none;
+      font-size: 2rem;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+      user-select: none;
+      z-index: 2010;
+    }
+    .nav-arrow:hover {
+      background: var(--accent);
+      color: white;
+    }
+    .prev-arrow { left: 4%; }
+    .next-arrow { right: 4%; }
+
+    /* Hide arrows on mobile screens to save layout space */
+    @media (max-width: 768px) {
+      .nav-arrow { padding: 0.5rem 1rem; font-size: 1.5rem; }
+      .prev-arrow { left: 2%; }
+      .next-arrow { right: 2%; }
+    }
   </style>
 </head>
 <body>
@@ -112,7 +141,7 @@
         <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="map2017.png" alt="Beirut in 2017" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreen(this.src)">
+              <img src="map2017.png" alt="Beirut in 2017" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(0)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">02. Dataset A: Urban Density</h3>
@@ -127,7 +156,7 @@
 
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="map2025.png" alt="Beirut in 2025" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreen(this.src)">
+              <img src="map2025.png" alt="Beirut in 2025" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(1)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">03. Dataset B: Infrastructure Buffer</h3>
@@ -153,7 +182,7 @@
           
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="mapndvi17.png" alt="NDVI 2017" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreen(this.src)">
+              <img src="mapndvi17.png" alt="NDVI 2017" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(2)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">02. Dataset A: Urban Density</h3>
@@ -168,7 +197,7 @@
 
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="mapndvi25.png" alt="NDVI 2025" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreen(this.src)">
+              <img src="mapndvi25.png" alt="NDVI 2025" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(3)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">03. Dataset B: Infrastructure Buffer</h3>
@@ -187,7 +216,7 @@
       <!-- MAP 5 SHOWCASE -->
       <section class="map-showcase">
         <div class="image-container">
-          <img src="mapchange.png" alt="Map Project 5"onclick="openFullscreen(this.src)">
+          <img src="mapchange.png" alt="Map Project 5"onclick="openFullscreenIndex(4)">
         </div>
         <div class="map-info">
           <h2>NDVI change 2017-2025</h2>
@@ -207,28 +236,70 @@
       © 2026 UCU GIS Student Portfolio — All Rights Reserved.
     </footer>
   </div>
-<div id="fullscreenModal" class="modal" onclick="closeFullscreen()">
+
+  <div id="fullscreenModal" class="modal">
     <span class="close-modal" onclick="closeFullscreen()">&times;</span>
-    <img class="modal-content" id="modalTargetImage" alt="Fullscreen View">
+    
+    <button class="nav-arrow prev-arrow" onclick="changeMap(-1); event.stopPropagation();">&#10094;</button>
+    
+    <img class="modal-content" id="modalTargetImage" alt="Fullscreen View" onclick="event.stopPropagation();">
+    
+    <button class="nav-arrow next-arrow" onclick="changeMap(1); event.stopPropagation();">&#10095;</button>
   </div>
 
   <script>
-    function openFullscreen(imageSrc) {
+    // 1. Maintain a master array of your 5 map image filenames in order
+    const galleryImages = [
+      "map2017.png", // Map 1
+      "map2025.png", // Map 2 (Change to your actual filename, e.g., map2.png)
+      "mapndvi17.png", // Map 3 (Change to your actual filename, e.g., map3.png)
+      "mapndvi25.png", // Map 4 (Change to your actual filename, e.g., map4.png)
+      "mapchange.png"  // Map 5 (Change to your actual filename, e.g., map5.png)
+    ];
+    
+    let currentImageIndex = 0;
+
+    // Open lightbox at a specific image index
+    function openFullscreenIndex(index) {
+      currentImageIndex = index;
       const modal = document.getElementById("fullscreenModal");
       const modalImg = document.getElementById("modalTargetImage");
+      
       modal.style.display = "flex";
-      modalImg.src = imageSrc;
+      modalImg.src = galleryImages[currentImageIndex];
     }
 
     function closeFullscreen() {
       document.getElementById("fullscreenModal").style.display = "none";
     }
 
-    // Optional: Press 'Esc' key to close the view seamlessly
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeFullscreen();
+    // Slide forward (+1) or backward (-1)
+    function changeMap(direction) {
+      currentImageIndex += direction;
+      
+      // Loop around if user hits boundaries
+      if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0; // Go back to first map
+      } else if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1; // Go to last map
       }
+      
+      document.getElementById("modalTargetImage").src = galleryImages[currentImageIndex];
+    }
+
+    // Keyboard controls for a native feel
+    document.addEventListener('keydown', function(e) {
+      const modal = document.getElementById("fullscreenModal");
+      if (modal.style.display === "flex") {
+        if (e.key === 'Escape') closeFullscreen();
+        if (e.key === 'ArrowRight') changeMap(1);
+        if (e.key === 'ArrowLeft') changeMap(-1);
+      }
+    });
+
+    // Close modal when clicking the dark background layout area
+    document.getElementById("fullscreenModal").addEventListener("click", closeFullscreen);
+  </script>
     });
   </script>
 </body>
