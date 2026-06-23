@@ -142,6 +142,39 @@
     .map-card:hover .click-overlay {
       opacity: 1;
     }
+    header {
+      padding: 5rem 0 2rem 0;
+      background: var(--bg);
+    }
+
+    /* Full-Width Banner Image Wrapper */
+    .utrecht-banner {
+      background-image: url('image_0b8f3f.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 300px;
+      position: relative;
+    }
+
+    /* Soft White Overlay Layer on the Photo */
+    .white-frost-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* About Me Frame Alignment */
+    #about {
+      padding: 4rem 0;
+      background: var(--bg) !important;
+    }
+
+    .about-box {
+      background-color: var(--surface) !important;
+      box-shadow: var(--shadow);
+    }
   </style>
 </head>
   
@@ -161,35 +194,27 @@
     </div>
   </header>
 
-  <section class="hero">
+  <header>
     <div class="container">
-      <div class="hero-grid">
-        <div>
-          <h1>Alice's GIS portfolio</h1>
-          <p>A showcase of my maps from my UCU lab course of Geographical Information Systems</p>
-          <a href="#maps" class="button">View Maps</a>
-        </div>
-        <div class="hero-card">
-          <h3>Portfolio Highlights</h3>
-          <ul>
-            <li>• SDG Choropleth interactive map</li>
-            <li>• Vector map</li>
-            <li>• DEM map</li>
-            <li>• Vegetation Indices</li>
-          </ul>
-        </div>
-      </div>
+      <h1>Alice's GIS Portfolio</h1>
+      <p>Specializing in Spatial Analysis, Interactive Cartography, and Environmental Data Science</p>
     </div>
-  </section>
+  </header>
+
+  <div class="utrecht-banner">
+    <div class="white-frost-overlay"></div>
+  </div>
 
   <section id="about">
     <div class="container">
-      <div class="section-title">
-        <h2>About Me</h2>
-        <p>Welcome to my geospatial work hub.</p>
-      </div>
       <div class="about-box">
-        <p>I am a GIS student focused on building clean, impactful mapping products that highlight critical global shifts, such as the UN Sustainable Development Goals.</p>
+        <div class="about-content">
+          <h2>About Me</h2>
+          <p>I am a human geography and GIS student at University College Utrecht, passionate about using spatial data to understand environmental and social changes. My work combines interactive web mapping, remote sensing, and cartographic design to make complex geographic datasets accessible and impactful.</p>
+        </div>
+        <div class="profile-image">
+          <img src="profile.jpg" alt="Alice Profile Picture">
+        </div>
       </div>
     </div>
   </section>
