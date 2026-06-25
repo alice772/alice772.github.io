@@ -127,26 +127,26 @@
     <a href="index.html" class="back-btn">← Back to Portfolio</a>
 
     <header>
-      <h1>Vegetation index Beirut map</h1>
-      <p>An in-depth look into the vegetation in Beirut, Lebanon and the surrounding area between 2017 and 2025.</p>
+      <h1>Spatial analysis of travel time to kindergartens</h1>
+      <p>An look into the on-foot accessibility of kindergartens in Prague, Czech Republic.</p>
     </header>
 
     <main class="gallery-stack">
 
-       <!-- MAP 3,4 SHOWCASE -->
+       <!-- MAP 1,2 SHOWCASE -->
       <section class="map-showcase" style="padding: 2rem;">
         <h2 style="font-family:'Merriweather',serif; margin-bottom: 1.5rem; font-size: 1.75rem; text-align: center;">
-          Comparison of Beirut between 2017 and 2025
+          Placement of kindergartens around Prague
         </h2>
         <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="map2017.png" alt="Beirut in 2017" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(0)">
+              <img src="prgAmenity.png" alt="Kindergartens around prague" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(0)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">02. Dataset A: Urban Density</h3>
               <div class="map-meta" style="margin-bottom: 1rem; gap: 1rem;">
-                <span><strong>Software:</strong> ArcGIS Pro</span>
+                <span><strong>Software:</strong> QGIS long-term release</span>
               </div>
               <div class="map-description">
                 <p>Description for your left-side map metric goes here.</p>
@@ -156,7 +156,7 @@
 
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="map2025.png" alt="Beirut in 2025" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(1)">
+              <img src="prgB+A.png" alt="Kindergartens and buildings around Prague" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(1)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">03. Dataset B: Infrastructure Buffer</h3>
@@ -175,14 +175,14 @@
       <!-- MAP 3,4 SHOWCASE -->
       <section class="map-showcase" style="padding: 2rem;">
         <h2 style="font-family:'Merriweather',serif; margin-bottom: 1.5rem; font-size: 1.75rem; text-align: center;">
-          Comparison between the NDVI in 2017 and 2025
+          Isochrone maps of the on-foot walking travel time from residences to kindergartens
         </h2>
 
         <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
           
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="mapndvi17.png" alt="NDVI 2017" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(2)">
+              <img src="prgIso.png" alt="Isochrones" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(2)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">02. Dataset A: Urban Density</h3>
@@ -197,7 +197,7 @@
 
           <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
             <div class="image-container" style="margin-bottom: 1rem;">
-              <img src="mapndvi25.png" alt="NDVI 2025" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(3)">
+              <img src="prgIso+B.png" alt="Isochrones + buildings" style="width:100%; height:300px; object-fit:cover;"onclick="openFullscreenIndex(3)">
             </div>
             <div class="map-info">
               <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">03. Dataset B: Infrastructure Buffer</h3>
@@ -210,23 +210,6 @@
             </div>
           </div>
 
-        </div>
-      </section>
-      
-      <!-- MAP 5 SHOWCASE -->
-      <section class="map-showcase">
-        <div class="image-container">
-          <img src="mapchange.png" alt="Map Project 5"onclick="openFullscreenIndex(4)">
-        </div>
-        <div class="map-info">
-          <h2>NDVI change 2017-2025</h2>
-          <div class="map-meta">
-            <span><strong>Software:</strong> ArcGIS Pro</span>
-            <span><strong>Data Source:</strong> Intergovernmental Datasets</span>
-          </div>
-          <div class="map-description">
-            <p>Explain how time-series information was evaluated across a set duration to document shifts in development, layout adjustments, or structural changes over generations.</p>
-          </div>
         </div>
       </section>
 
