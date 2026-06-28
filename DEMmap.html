@@ -29,22 +29,72 @@
     .back-btn:hover { color:var(--accent); }
 
     header { margin-bottom:2.5rem; }
-    header h1 { font-family:'Merriweather',serif; font-size:clamp(1.8rem, 4vw, 2.8rem); margin-bottom:0.5rem; line-height:1.2; }
+    header h1 { font-family:'Merriweather',serif; font-size:clamp(1.8rem, 4vw, 2.8rem); margin-bottom:0.5rem; line-height:1.2; color:#1f2937; }
     header p { color:var(--muted); font-size:1.1rem; }
 
-    .showcase-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; padding:2rem; }
-    
-    /* Large Map Window Wrapper */
-    .map-large-window { width:100%; height:650px; border-radius:12px; border:1px solid var(--border); overflow:hidden; margin-bottom:2.5rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); }
-    .map-large-window iframe { width:100%; height:100%; border:0; }
-    
-    .content-section h2 { font-family:'Merriweather',serif; margin-bottom:1rem; font-size:1.6rem; color:var(--text); }
-    .meta-details { display:flex; gap:2rem; flex-wrap:wrap; margin-bottom:1.5rem; color:var(--muted); font-size:0.9rem; border-bottom:1px solid var(--border); padding-bottom:1.2rem; }
-    .description-text p { margin-bottom:1.2rem; color:#4b5563; font-size:1.05rem; }
-    
-    @media(max-width: 768px) {
-      .map-large-window { height: 450px; }
+    /* Clean Card Container Matching Kindergarten Page */
+    .showcase-card { 
+      background:var(--surface); 
+      border:1px solid var(--border); 
+      border-radius:var(--radius); 
+      box-shadow:var(--shadow); 
+      padding:2.5rem; 
+      margin-bottom:2.5rem;
     }
+    
+    .card-title {
+      font-family:'Merriweather',serif;
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    /* Grid layout for images */
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    @media(max-width: 768px) {
+      .map-grid { grid-template-columns: 1fr; }
+    }
+
+    .map-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-container { 
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .image-container img { 
+      width: 100%; 
+      height: auto; 
+      display: block;
+      cursor: pointer;
+    }
+    
+    .map-meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    
+    /* Animation Section Styles */
+    .video-container {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+    .video-container video { width: 100%; display: block; }
+
+    .description-text { color:#4b5563; font-size:1.05rem; margin-top: 0.5rem; }
   </style>
 </head>
 <body>
@@ -58,37 +108,47 @@
     </header>
 
     <main>
-      <!-- the hague -->
-      <section class="map-showcase">
-        <div class="image-container">
-          <img src="thehaguedem.png" alt="Map Project 1"onclick="openFullscreen">
-        </div>
-        <div class="map-info">
-          <h2>3d model of buildings in the Hague</h2>
-          <div class="map-meta">
-            <span><strong>Software:</strong> QGIS</span>
-          </div>
-        </div>
-        <div class="image-container">
-          <img src="DTMmap.png" alt="Map Project 2"onclick="openFullscreen">
-        </div>
-        <div class="map-info">
-          <h2>DTM map with no voids</h2>
-          <div class="map-meta">
-            <span><strong>Software:</strong> QGIS</span>
-          </div>
-          <div class="map-description">
-            <p>Description.</p>
+      <!-- SECTION 1: Map Layout Panel -->
+      <section class="showcase-card">
+        <h2 class="card-title">Placement of buildings around The Hague</h2>
+        
+        <div class="map-grid">
+          <!-- First Map -->
+          <div class="map-item">
+            <div class="image-container">
+              <img src="thehaguedem.png" alt="3d model of buildings in the Hague">
             </div>
+            <div class="map-meta">
+              <strong>Software:</strong> QGIS
+            </div>
+          </div>
+
+          <!-- Second Map -->
+          <div class="map-item">
+            <div class="image-container">
+              <img src="DTMmap.png" alt="DTM map with no voids">
+            </div>
+            <div class="map-meta">
+              <strong>Software:</strong> QGIS
+            </div>
+          </div>
         </div>
       </section>
-      <section>
-        <video width="100%" autoplay loop muted playsinline>
-    <source src="animation.mp4" type="video/mp4">
-    </video>
-        <div class="map-description">
-            <p>Description.</p>
-            </div>
+
+      <!-- SECTION 2: 3D Animation Render Panel -->
+      <section class="showcase-card">
+        <h2 class="card-title">3D Flight Animation Loop</h2>
+        
+        <div class="video-container">
+          <video autoplay loop muted playsinline>
+            <source src="animation.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div class="description-text">
+          <p>Add a description here about your 3D building render or your workflow processing the DEM / DTM surface details within QGIS and Blender.</p>
+        </div>
       </section>
     </main>
 
