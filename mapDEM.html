@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choropleth Map Feature - GIS Portfolio</title>
+  <title>Raster Elevation Model</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -58,27 +58,21 @@
     </header>
 
     <main>
-      <div class="showcase-card">
-        <div class="map-large-window">
-          <iframe src="map.html" allowfullscreen></iframe>
+      <!-- MAP 5 SHOWCASE -->
+      <section class="map-showcase">
+        <div class="image-container">
+          <img src="mapchange.png" alt="Map Project 5"onclick="openFullscreen">
         </div>
-        
-        <div class="content-section">
-          
-          <div class="meta-details">
-            <span><strong>Framework:</strong> Leaflet.js / QGIS</span>
-            <span><strong>Data Source:</strong> UN SDG DataHub (2024 Release)</span>
-            <span><strong>Classification:</strong> 10-Tier Custom Quantile Breaks</span>
+        <div class="map-info">
+          <h2>3d model of the Hague with 3m of flooding</h2>
+          <div class="map-meta">
+            <span><strong>Software:</strong> QGIS</span>
           </div>
-
-          <div class="description-text">
-            <p>The map shows the mortality rate of children under 5 years old per 1,000 live births from 2024, which is the SDG indicator 3.2.1. This is an indicator of the SDG Target 3.2 to end preventable newborn and under-5 deaths by the year 2030. This target supports the SDG goal 3 to ensure healthy lives and promote well-being for all ages. The map illustrates how big this issue is in many countries in Africa with the darkest blue color, the five with the highest mortality rates being Nigeria, Niger, Somalia, Chad, and South Sudan. The lowest rates can be seen in a very light, almost white, blue.<p/>
-            <p>Link to SDG 3.2 indicator metadata: https://unstats.un.org/sdgs/metadata/files/Metadata-03-0B-02.pdf</p>
-            <p>A choropleth map uses color to show data values across countries, territories, or geographical fields. It uses color gradients to show the differences in a certain factor, usually using darker colors for higher values and lighter colors for lower ones. Choropleth maps are really good for showcasing relative data, such as percentages or rates, since the visual narrative draws people to the darkest values and the gradient makes it easy to compare different areas with each other. However, the  simplicity that makes the map very easy to understand also makes it easy to misread or misinterpret the data. Since whole country or territory areas are shaded in with one color in a choropleth map, it gives the impression that the data is evenly spread through that area, while it might be more concentrated on certain cities or areas within the country.<p/> 
-            <p>Working on this map has taught me a lot about map graphing, specifically working in the QGIS programme, since this is my first time interacting with it and at certain times it was a struggle to orient myself in the program. I also learned a couple new excel skills when I was processing the data. Then while trying to make the interactive map today I also struggled quite a lot and consulted AI to help me understand the code and how to make it work for me, from which I have also gathered a couple things about coding.<p/>
-          </div>
+          <div class="map-description">
+            <p>High quality imagery of the world from above is achieved through satellite remote sensing. Satellites take photos of parts of the map from above, which are then put together to make a whole image, which can be called an Orthomosaic. This map merges and seamlessly blends all of the images from the satellites. However, these images of the land can often be covered by clouds, which makes complicates the orthomosaic. So, to create a cloudless omposite from open data you need to filter the data by a time window, for which platforms like Google Earth evaluate images from all dates and determine the median value for each pixel in the orthomosaic, filtering out clouds in the process.</p>
+            </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <footer style="margin-top: 4rem; text-align: center; color: var(--muted); font-size: 0.9rem;">
