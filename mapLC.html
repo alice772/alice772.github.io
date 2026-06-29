@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raster Elevation Model</title>
+  <title>Land Cover Classification</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
@@ -84,16 +84,6 @@
     
     .map-meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
     
-    /* Animation Section Styles */
-    .video-container {
-      width: 100%;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      margin-bottom: 1rem;
-    }
-    .video-container video { width: 100%; display: block; }
-
     .description-text { color:#4b5563; font-size:1.05rem; margin-top: 0.5rem; }
   </style>
 </head>
@@ -109,34 +99,19 @@
 
     <main>
           <div class="map-item">
-            <h3>DTM map</h3>
+            <h3>Barcelona's land cover usage</h3>
             <div class="image-container">
-              <img src="DTMmap.png" alt="DTM map with no voids">
+              <img src="landcovermap.jpg" alt="image7">
             </div>
             <div class="map-meta">
-              <strong>Software:</strong> QGIS
+              <strong>Software:</strong> ArcGIS
             </div>
           </div>
+          <div class="description-text">
+            <p>description...</p>
+          </div>
         </div>
-      </section>
 
-      <!-- SECTION 2: 3D Animation Render Panel -->
-      <section class="showcase-card">
-        <h2 class="card-title">3D Flight Animation Loop - Flooding at 3m of water</h2>
-        
-        <div class="video-container">
-          <video autoplay loop muted playsinline>
-            <source src="animation.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        
-        <div class="description-text">
-          <p>For this assignment, we had 2 different options, and I chose to do the 3d urban model with flood analysis since I thought it would be really cool to make a 3d map. My ROI (Region of interest) is the Hague. I chose it because it is very close to water and is at risk of potential flooding if the water management systems failed, thus I was interested in seeing how it would manage with a couple meters of water. The area is approximately 15 km2.</p> 
-          <p>The results were not that surprising, at 3 meters the city gets flooded in a most of its urban places, but some places remain dry. As I experimented with analysing flooding at higher levels of water, I noticed that after about 15m there was no change, thus most of the city is likely underwater at that point.</p>
-          <p>This project was especially challenging for me at times, as it tested my patience a lot. In the begining everything went smoothly, but then I came across a step in the tutorial that was not showing up the same in my QGIS app, so that was very frustrating as I could not find how to do it anywhere. However, I came back to the project the next day and figured out another way to complete the step and persevere with the project. However, an even bigger and more frustrating problem arose after I was done with the whole thing and I was supposed to use a pluggin to export it. During this step I faced so many issues, since I have a macos and the program does not run smoothly on it, and eventually I gave up. In the end a claamate showed me how to do an animation in QGIS, which was very helpful, even though it lags quite a bit and is not in the best quality.</p> 
-        </div>
-      </section>
     </main>
 
     <footer style="margin-top: 4rem; text-align: center; color: var(--muted); font-size: 0.9rem;">
