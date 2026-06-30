@@ -44,9 +44,9 @@
     
     .card-title {
       font-family:'Merriweather',serif;
-      text-align: center;
+      text-align: left;
       font-size: 1.8rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--text);
     }
 
@@ -82,9 +82,17 @@
       cursor: pointer;
     }
     
-    .map-meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; }
+    .map-meta { color: var(--muted); font-size: 0.9rem; margin-top: 0.25rem; margin-bottom: 1rem; }
     
-    .description-text { color:#4b5563; font-size:1.05rem; margin-top: 0.5rem; }
+    .description-text { color:#4b5563; font-size:1.05rem; }
+    .description-text p { margin-bottom: 1.25rem; }
+    
+    h3 { font-family:'Merriweather',serif; font-size: 1.3rem; margin-bottom: 1rem; color: var(--text); }
+    h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text); }
+    ul { margin-bottom: 1.25rem; padding-left: 1.25rem; color: #4b5563; }
+    li { margin-bottom: 0.5rem; }
+    
+    .divider { height: 1px; background: var(--border); margin: 2.5rem 0; }
   </style>
 </head>
 <body>
@@ -98,20 +106,78 @@
     </header>
 
     <main>
+      <!-- Main Showcase Card containing the complete project data -->
+      <div class="showcase-card">
+        
+        <h2 class="card-title">Barcelona's Land Cover & Satellite Imagery</h2>
+
+        <!-- Image pair grid for Land Cover vs Satellite Imagery -->
+        <div class="map-grid">
           <div class="map-item">
-            <h3>Barcelona's land cover usage</h3>
+            <h4>Sentinel-2 Satellite Image View</h4>
             <div class="image-container">
-              <img src="landcovermap.jpg" alt="image7">
-            </div>
-            <div class="map-meta">
-              <strong>Software:</strong> ArcGIS
+              <!-- Replace with actual filename if distinct -->
+              <img src="barcelona_satellite.jpg" alt="Barcelona Sentinel-2 Satellite View">
             </div>
           </div>
-          <div class="description-text">
-            <p>description...</p>
+
+          <div class="map-item">
+            <h4>Classified Land Use/Land Cover Map</h4>
+            <div class="image-container">
+              <img src="landcovermap.jpg" alt="Barcelona Land Cover Classification Map">
+            </div>
           </div>
         </div>
 
+        <div class="map-meta">
+          <strong>Software:</strong> ArcGIS Online &nbsp;|&nbsp; <strong>Resolution:</strong> 10m Pixel Size (Length & Width)
+        </div>
+
+        <div class="description-text">
+          <p>
+            This task focuses on automated land cover classification. Automated land cover classification is extremely useful to geologists as it leverages machine learning to automatically catalog geography into predefined classes instead of requiring manual, hands-on digitization. This computational efficiency is especially valuable for observing and processing rapid land cover changes over time from satellite data streams.
+          </p>
+
+          <h3>Methodology: Supervised vs. Unsupervised Classification</h3>
+          <p>
+            Land cover classification structures are generally divided into two main approaches:
+          </p>
+          <ul>
+            <li>
+              <strong>Supervised Classification:</strong> The user manually establishes control by drawing training samples on a map to explicitly identify known land cover types. The program evaluates these user-defined pixel profiles and groups all other statistically similar spectral signatures across the map into the same category (e.g., highlighting a known agricultural block to capture matching fields elsewhere).
+            </li>
+            <li>
+              <strong>Unsupervised Classification:</strong> The system initiates the workflow independently by clustering raw pixels solely on statistical algorithm similarities. The GIS technician evaluates the output and labels those isolated clusters retrospectively based on actual land usage.
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Secondary Section: NDVI Analysis Mapping -->
+        <h2 class="card-title">Normalized Difference Vegetation Index (NDVI)</h2>
+
+        <div class="map-grid">
+          <div class="map-item">
+            <h4>NDVI Classification Scheme</h4>
+            <div class="image-container">
+              <img src="ndvi_map.jpg" alt="Barcelona NDVI Vegetation Map">
+            </div>
+          </div>
+          
+          <div class="map-item" style="justify-content: center;">
+            <div class="description-text">
+              <p>
+                The normalized analysis implements a highly practical green-yellow-red color continuum. 
+              </p>
+              <p>
+                This standard schema provides intuitive data parsing since vibrant greens map natively to healthy, dense vegetation configurations. This visually mirrors real-world conditions where strong plant chlorophyll responses align perfectly with standard green visualization benchmarks.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </main>
 
     <footer style="margin-top: 4rem; text-align: center; color: var(--muted); font-size: 0.9rem;">
