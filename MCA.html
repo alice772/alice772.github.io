@@ -16,8 +16,15 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1100px; /* Expanded from 800px to allow for the wider card */
             margin: 0 auto;
+        }
+
+        /* Elements that should stay constrained to the original 800px width */
+        .narrow-bound {
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .back-link {
@@ -56,12 +63,29 @@
             margin-bottom: 30px;
         }
 
-        h2 {
+        /* Specific wider styling for the new application card */
+        .wide-card {
+            max-width: 1050px;
+            margin: 40px auto;
+        }
+
+        h2, h3 {
             font-family: Georgia, serif;
-            font-size: 28px;
             color: #1a2530;
             margin-top: 0;
+        }
+
+        h2 {
+            font-size: 28px;
             margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #eeeeee;
+            padding-bottom: 6px;
         }
 
         .metadata {
@@ -80,7 +104,38 @@
             margin-bottom: 20px;
         }
 
-        /* Image styling matching the structure from Screenshot 2026-06-29 at 12.14.14.jpg */
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: 16px;
+            color: #444444;
+            margin-bottom: 8px;
+        }
+
+        /* Styled table structure for the sustainability categories */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        th {
+            background-color: #f1f3f5;
+            color: #1a2530;
+            font-weight: 600;
+        }
+
+        /* Image styling matching the structure from Screenshot 2026-06-30 at 23.48.22.jpg */
         .diagram-container {
             text-align: center;
             margin: 30px 0;
@@ -100,58 +155,167 @@
             margin-top: 8px;
             font-style: italic;
         }
+
+        .quote-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a2530;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555555;
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-    <!-- Back Navigation -->
-    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+    <!-- Wrapper keeps header layout isolated at the original 800px footprint -->
+    <div class="narrow-bound">
+        <!-- Back Navigation -->
+        <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
 
-    <!-- Page Header Title -->
-    <h1>Multicriteria Analysis (MCA)</h1>
-    
-    <!-- Intro Paragraph -->
-    <p class="intro-text">
-        Real-world spatial problems rarely contain a single variable. To solve complex geographical challenges, 
-        we rely on Multicriteria Analysis (MCA)—a structured decision-making framework used in GIS to examine, 
-        organize, and combine several conflicting factors into accurate spatial solutions. By stacking layers 
-        of variables and organizing them by importance, MCA allows us to systematically analyze and determine 
-        the absolute best solutions for complex spatial issues.
-    </p>
-
-    <!-- Main Content Card -->
-    <div class="content-card">
+        <!-- Page Header Title -->
+        <h1>Multicriteria Analysis (MCA)</h1>
         
-        <h2>The Value of MCA</h2>
-        
+        <!-- Intro Paragraph -->
+        <p class="intro-text">
+            Real-world spatial problems rarely contain a single variable. To solve complex geographical challenges, 
+            we rely on Multicriteria Analysis (MCA)—a structured decision-making framework used in GIS to examine, 
+            organize, and combine several conflicting factors into accurate spatial solutions. By stacking layers 
+            of variables and organizing them by importance, MCA allows us to systematically analyze and determine 
+            the absolute best solutions for complex spatial issues.
+        </p>
 
-        <p>
-            MCA is incredibly valuable in GIS because it allows analysts to combine several factors and diverse 
-            data sources into a single visual field. This synthesis makes geographical decision-making much more 
-            calculated, transparent, and accurate. Ultimately, it reduces the risk of human bias since we do not 
-            have to guess which environmental or infrastructural factors are more important. Instead, we assign mathematically 
-            weighted values to each criterion based on targeted objectives.
+        <!-- Main Content Card (The Value of MCA) -->
+        <div class="content-card">
+            <h2>The Value of MCA</h2>
+            <p>
+                MCA is incredibly valuable in GIS because it allows analysts to combine several factors and diverse 
+                data sources into a single visual field. This synthesis makes geographical decision-making much more 
+                calculated, transparent, and accurate. Ultimately, it reduces the risk of human bias since we do not 
+                have to guess which environmental or infrastructural factors are more important. Instead, we assign mathematically 
+                weighted values to each criterion based on targeted objectives.
+            </p>
+            <p>
+                This method can help answer a wide variety of spatial questions. It is most often used to answer spatial 
+                optimization questions, such as determining where to build new residential developments safely, identifying 
+                critical zones for protecting wildlife habitats, or finding the best locations for construction of flood barriers.
+            </p>
+
+            <!-- Diagram Element -->
+            <div class="diagram-container">
+                <img src="mcapic.jpg" alt="Spatial Multi-criteria Decision Analysis Workflow Diagram">
+                <div class="image-caption">
+                    Figure source: https://www.frontiersin.org/journals/forests-and-global-change/articles/10.3389/ffgc.2024.1337535/full
+                </div>
+            </div>
+        </div>
+    </div> <!-- /narrow-bound -->
+
+
+    <!-- NEW WIDER CARD: Scholarly Application of MCA -->
+    <div class="content-card wide-card">
+        <h2>Option 1: Review a Scholarly Application of MCA</h2>
+        
+        <p class="metadata">
+            <strong>Citation (APA Style):</strong> Suab, S. A., Supe, H., Louw, S. A., Korom, A., Rakib, M. R. M., Wong, Y. B., Kemarau, R. A., & Avtar, R. (2024). Assessing Borneo's tropical forests and plantations: a multi-sensor remote sensing and geospatial MCDA approach to environmental sustainability. <em>Frontiers in Forests and Global Change</em>, 7, Article 1337535. <a href="https://doi.org/10.3389/ffgc.2024.1337535" target="_blank">https://doi.org/10.3389/ffgc.2024.1337535</a>
         </p>
 
         <p>
-            This method can help answer a wide variety of spatial questions. It is most often used to answer spatial 
-            optimization questions, such as determining where to build new residential developments safely, identifying 
-            critical zones for protecting wildlife habitats, or finding the best locations for construction of flood barriers.
+            This study focused on the Malaysian Borneo in Northern Sabah and addressed the need for thorough sustainability assessments for tropical forests and plantations that are highly fragmented. The primary focus of this study is on the sustainability of all of the different land cover areas in the study location.
         </p>
 
-        <!-- Diagram Element (From Screenshot 2026-06-29 at 12.14.14.jpg) -->
+        <div class="quote-block">
+            "The study presented the concept of use of multi-sensor remote sensing for LULC mapping with geospatial MCDA for environmental sustainability assessment useful to stakeholders for improving the management plan also contributing toward the progress of achieving UNSDGs and addressing REDD+."
+        </div>
+
+        <h3>Multicriteria Indicators</h3>
+        <p>Researchers decided to look at 5 sustainability indicator layers:</p>
+        <ul>
+            <li><strong>Slope erosion protection:</strong> Erosion of slopes often causes surface runoff.</li>
+            <li><strong>River buffers:</strong> Preserve aquatic ecosystems.</li>
+            <li><strong>Landscape connectivity and quality:</strong> Ecosystem connectivity; important for threatened wildlife.</li>
+            <li><strong>High conservation value:</strong> Important for ecosystem services.</li>
+            <li><strong>Water turbidity:</strong> Flags degradation from fertilizer runoff.</li>
+        </ul>
+
+        <p>They also used LULC mapping to classify the land into 3 sustainability levels depending on the LULC layers, as seen in the table below:</p>
+
+        <h3>LULC Sustainability Categories Weightage (Scores)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sustainability Categories (Scores)</th>
+                    <th>LULC Layers</th>
+                    <th>Descriptions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Low</strong></td>
+                    <td>Infrastructure, Soil/Clearcut and Aquaculture</td>
+                    <td>Activities involved removing/clearing natural vegetation and cutting slopes.</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Medium</strong></td>
+                    <td>Secondary forest, Rubber, Acacia, Eucalyptus Pellita, Oil palm</td>
+                    <td>Non-natural vegetation, including regeneration of secondary forest replacing original vegetations.</td>
+                </tr>
+                <tr>
+                    <td><strong>3. High</strong></td>
+                    <td>Waterbody, Nipah, Forest, Mangrove and Beach Sand</td>
+                    <td>Natural permanent vegetations.</td>
+                </tr>
+                <tr>
+                    <td><em>No scores/Excluded</em></td>
+                    <td>Cloud and Shadow</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Data Sources</h3>
+        <ul>
+            <li><strong>Spatial Datasets:</strong> Synthetic Aperture Radar (SAR) imagery, multi-spectral optical imagery, very high-resolution satellite imagery, digital elevation models (DEM), and baseline logging/management operational maps.</li>
+            <li><strong>GIS Data Sources:</strong> Sentinel-1, Sentinel-2, PlanetScope, SRTM v3, Forest Operations Base Map (2021)</li>
+        </ul>
+
+        <h3>The Workflow / Method</h3>
+        <!-- Replace 'workflow_diagram.jpg' with the actual path to your workflow image asset -->
         <div class="diagram-container">
-            <img src="mcapic.jpg" alt="Spatial Multi-criteria Decision Analysis Workflow Diagram">
+            <img src="workflow_diagram.jpg" alt="Detailed workflow of the indicators weighted overlay analysis">
             <div class="image-caption">
-                Figure source: https://www.frontiersin.org/journals/forests-and-global-change/articles/10.3389/ffgc.2024.1337535/full
+                Detailed workflow of the indicators weighted overlay analysis of the MCDA model for producing the sustainability index maps.
             </div>
         </div>
 
+        <p>
+            The method is quite complicated as we can see from the graphic. Essentially, to create the LULC, researchers fused Sentinel-2 and PlanetScope satellite imagery with Sentinel-1 radar data in the Google Earth Engine (GEE) platform. They classified 14 different land-use types with a machine-learning algorithm. Then they generated maps for the 5 indicators by using a DEM and spatial proximity tools, which they then standardized into matching rank layers. Lastly, to create one comprehensive map they combined all layers using a Spatial Weighted Overlay Analysis.
+        </p>
+
+        <h3>The Main Findings</h3>
+        <p>Sustainability ranking of the area:</p>
+        <ul>
+            <li><strong>61% High:</strong> Includes industrial tree plantations and village reserves since they provide continuous tree cover.</li>
+            <li><strong>31% Medium:</strong> Includes oil palm and rubber plantations since they are monocultures that break many wildlife corridors.</li>
+            <li><strong>8% Low:</strong> Researchers pointed out that they have water turbidity concerns since 61% of the local water network was found to have severe sediment and chemical runoff from agriculture, placing it into the low sustainability category.</li>
+        </ul>
+
+        <!-- Replace 'sustainability_map.jpg' with your map asset graphic -->
+        <div class="diagram-container">
+            <img src="sustainability_map.jpg" alt="Sustainability score map of the study area">
+            <div class="image-caption">
+                Sustainability score map of the study area with five boundaries of land use areas: (i.) Industrial Tree Plantations (ITP), (ii.) forest reserves, (iii.) village reserves, (iv.) oil palm plantations, and (v.) rubber plantations.
+            </div>
+        </div>
+
+        <p>
+            Ultimately, they were able to find out the sustainability levels from combining many data sources and GIS techniques. They would not have been able to create such a comprehensive map with so much detail without MCA.
+        </p>
     </div>
 
-</div>
+</div> <!-- /container -->
 
 </body>
 </html>
